@@ -46,6 +46,21 @@ $posts = [
         ]
     ],
 ];
+
+
+// foreach ($posts as $date => $post_list) {
+
+//     # code...
+//     // var_dump($date, $post_list);
+//     echo $date;
+
+//     foreach ($post_list as $post) {
+
+//         # code...
+//         var_dump($post);
+//     }
+// }
+
 ?>
 
 <!DOCTYPE html>
@@ -53,9 +68,37 @@ $posts = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>php-snacks-b1</title>
+    <title>snack 3</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 </head>
 <body>
+
+    <div class="container">
+        
+        <?php foreach ($posts as $date => $post_list) : ?>
+            
+            <h2><?php echo $date; ?></h2>
+
+            <?php foreach ($post_list as $post) : ?>
+        
+                <div class="card mb-3">
+
+                    <div class="card-body">
+                        <h3><?php echo $post['title']; ?></h3>
+                        <p><?php echo $post['text']; ?></p>
+                    </div>
+
+                    <div class="card-footer">
+                        <?php echo $post['author']; ?>
+                    </div>
+
+                </div>
+
+            <?php endforeach ?>
+        
+        <?php endforeach; ?>
+
+    </div>
     
 </body>
 </html>
